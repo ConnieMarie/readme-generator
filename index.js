@@ -75,7 +75,7 @@ const questions = [
     {
       type: 'list',
       name: 'license',
-      choices: ['MIT', 'Apache', 'GLP', 'ISC', 'BSD', 'Mozilla', 'none'],
+      choices: ['MIT', 'Unlicense', 'ISC', 'Zlib', 'none'],
       message: 'Select a license for your project.'
       
     },
@@ -94,13 +94,29 @@ const questions = [
     
 ];
 
-const license = [
-  {
-    name: 'MIT',
-    badge: '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)',
-    link: '(https://opensource.org/licenses/MIT)'
-  }
-];
+// const license = [
+//   {
+//     name: 'MIT',
+//     badge: '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)',
+//     link: 'https://opensource.org/licenses/MIT'
+//   },
+//   {
+//     name: 'Apache',
+//     badge: '![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)',
+//     link: 'https://opensource.org/licenses/Apache-2.0'
+//   },
+//   {
+//     name: 'ISC',
+//     badge: '![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)',
+//     link: 'https://opensource.org/licenses/ISC'
+//   },
+//   {
+//     name: 'MPL 2.0',
+//     badge: '![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)',
+//     link: 'https://opensource.org/licenses/MPL-2.0'
+//   }
+   
+// ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
