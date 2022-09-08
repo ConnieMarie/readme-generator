@@ -14,6 +14,42 @@ function renderLicenseSection(license) {}
 function generateMarkdown(data) {
   return `# ${data.title}
 
+
+  ## Description
+  ${data.description}
+
+  ## Table of Contents
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Questions](#quesitons)
+
+  ## Insallation
+  To install necessary dependencies, run command:
+  ${data.insallation}
+
+  ## Usage
+  Instructions for use:
+  ${data.usage}
+
+  ## License
+  ${data.lincense}
+
+  ## Contributing
+  Guidelines to contribute to this project:
+  ${data.contributing}
+
+  ## Tests
+  To test this application:
+  ${data.tests}
+
+  ## Questions
+  For any additional questions, you may reach me at ${data.email}
+  To view my other work, please visit my GitHub profile at ${data.username} 
+  
+
 `;
 }
 
