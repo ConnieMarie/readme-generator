@@ -73,6 +73,13 @@ const questions = [
         
     },
     {
+      type: 'list',
+      name: 'license',
+      choices: ['MIT', 'Apache', 'GLP', 'ISC', 'BSD', 'Mozilla', 'none'],
+      message: 'Select a license for your project.'
+      
+    },
+    {
         type: 'input',
         name: 'contributing',
         message: 'Provide guidelines for contributing to your project.'
@@ -84,21 +91,35 @@ const questions = [
         message: 'Provide instructions for testing your application.'
         
     },
-    {
-        type: 'list',
-        name: 'license',
-        choices: ['MIT', 'Apache', 'GLP', 'ISC', 'BSD', 'Mozilla', 'none'],
-        message: 'Select a license for your project.'
-        
-    },
+    
+];
+
+const license = [
+  {
+    name: 'MIT',
+    badge: '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)',
+    link: '(https://opensource.org/licenses/MIT)'
+  }
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+  let fileContent = generateMarkdown(data);
+    fs.writeFile(fileName, fileContent, data, err => {
+      if (err) {
+        return console.log(err);
+      }
+      console.log('ReadME.md generated!')
+    });
+  };
 
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions)
+  .then(function (data) {
+    let fileName = 'README.md';
+    writeToFile(fileName, data)
+  });
 };
 
 // Function call to initialize app
