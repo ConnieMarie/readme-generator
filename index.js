@@ -3,7 +3,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
-// TODO: Create an array of questions for user input
+// array of questions for user input
 const questions = [
     {
         type: 'input',
@@ -49,7 +49,7 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        message: 'Provide a description of the project. (Required)',
+        message: 'Provide a breif description of your project. (Required)',
         validate: descriptionInput => {
             if (descriptionInput) {
               return true;
@@ -69,7 +69,7 @@ const questions = [
     {
         type: 'input',
         name: 'usage',
-        message: 'Provide intructions on the usage of your application.'
+        message: 'Provide intructions to use your application.'
         
     },
     {
@@ -94,31 +94,7 @@ const questions = [
     
 ];
 
-// const license = [
-//   {
-//     name: 'MIT',
-//     badge: '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)',
-//     link: 'https://opensource.org/licenses/MIT'
-//   },
-//   {
-//     name: 'Apache',
-//     badge: '![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)',
-//     link: 'https://opensource.org/licenses/Apache-2.0'
-//   },
-//   {
-//     name: 'ISC',
-//     badge: '![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)',
-//     link: 'https://opensource.org/licenses/ISC'
-//   },
-//   {
-//     name: 'MPL 2.0',
-//     badge: '![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)',
-//     link: 'https://opensource.org/licenses/MPL-2.0'
-//   }
-   
-// ];
-
-// TODO: Create a function to write README file
+// function to write README file
 function writeToFile(fileName, data) {
   let fileContent = generateMarkdown(data);
     fs.writeFile(fileName, fileContent, data, err => {
@@ -129,7 +105,7 @@ function writeToFile(fileName, data) {
     });
   };
 
-// TODO: Create a function to initialize app
+// function to initialize app
 function init() {
   inquirer.prompt(questions)
   .then(function (data) {

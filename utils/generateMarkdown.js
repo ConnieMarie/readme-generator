@@ -1,31 +1,36 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
+// function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  if (license.licence != 'none') {
-    return (`[![License: Unlicense](https://img.shields.io/badge/license-${license.license}-blue.svg)](#license)`);
+  if (license.license !== 'none') {
+    return (`[![License: ${license.license}](https://img.shields.io/badge/license-${license.license}-blue.svg)](#license)`);
   } else {
-    return ('');
+    return '';
   }
 };
 
-// USE THIS FOR BADGES..... https://img.shields.io/badge/badge-stuff-yellow
-//   https://img.shields.io/badge/<LABEL>-<MESSAGE>-<COLOR>
 
-// TODO: Create a function that returns the license link
+// function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  if (data.licence != 'none') {
-    return (data.license.link);
+  if (license.license != 'none') {
+    return `https://opensource.org/licenses/${license.license}`;
   } else {
-    return ('');
+    return '';
   }
 };
 
-// TODO: Create a function that returns the license section of README
+// function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license.license != 'none') {
+    return (`## License
+    This application is covered under ${license.license}. To read view documentation about this license, please visit the link below.`);
+  } else {
+    return '';
+  }
+};
 
-// TODO: Create a function to generate markdown for README
+// function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
 
@@ -50,15 +55,15 @@ function generateMarkdown(data) {
   Instructions for use ${data.title}:
   ${data.usage}
 
-  ## License
-  ${data.license}
+  ${renderLicenseSection(data)}
+  ${renderLicenseLink(data)}
 
   ## Contributing
   Guidelines to contribute to this project:
   ${data.contributing}
 
   ## Tests
-  To test this application:
+  Instructions to run tests on this application:
   ${data.tests}
 
   ## Questions
