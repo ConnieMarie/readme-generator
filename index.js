@@ -1,4 +1,4 @@
-// TODO: Include packages needed for this application
+// packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
@@ -49,7 +49,7 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        message: 'Provide a breif description of your project. (Required)',
+        message: 'Provide a brief description of your project. (Required)',
         validate: descriptionInput => {
             if (descriptionInput) {
               return true;
@@ -69,7 +69,7 @@ const questions = [
     {
         type: 'input',
         name: 'usage',
-        message: 'Provide intructions to use your application.'
+        message: 'Provide instructions to use your application.'
         
     },
     {
