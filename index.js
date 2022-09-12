@@ -63,7 +63,7 @@ const questions = [
     {
         type: 'input',
         name: 'installation',
-        message: 'Provide installation instructions, if any.'
+        message: 'Provide installation instructions. If no installation is required, leave blank.'
         
     },
     {
@@ -88,7 +88,7 @@ const questions = [
     {
         type: 'input',
         name: 'tests',
-        message: 'Provide instructions for testing your application.'
+        message: 'Provide instructions for testing your application. If no testing is available, leave blank.'
         
     },
     

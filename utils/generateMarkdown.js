@@ -1,3 +1,13 @@
+// function that adds a license tag to the Table of contents if user selects a license
+// if there is no license, return an empty string so that license tag is left out 
+function renderLicenseTag(license) {
+  if (license.license !== 'none') {
+    return (`- [License](#license)`);
+  } else {
+    return '';
+  }
+};
+
 // function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
@@ -30,6 +40,26 @@ function renderLicenseSection(license) {
   }
 };
 
+// function to add note stating no installation is required when user leaves section blank
+function renderNoInstallNote(installation) {
+  if (installation.installation === '') {
+    return `No installation required!`;
+  } else {
+    return `To install necessary dependencies, run command:\n
+    ${installation.installation}`;
+  }
+};
+
+// function to add note stating no tests are available when user leaves section blank
+function renderNoTestsNote(tests) {
+  if (tests.tests === '') {
+    return `No tests are available at this time.`;
+  } else {
+    return `Instructions to run tests on this application:\n
+    ${tests.tests}`;
+  }
+};
+
 // function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
@@ -42,32 +72,31 @@ function generateMarkdown(data) {
   ## Table of Contents
   - [Installation](#installation)
   - [Usage](#usage)
-  - [License](#license)
+  ${renderLicenseTag(data)}
   - [Contributing](#contributing)
   - [Tests](#tests)
   - [Questions](#questions)
+  
 
   ## Installation
-  To install necessary dependencies, run command:
-  ${data.installation}
+  ${renderNoInstallNote(data)}
 
   ## Usage
-  Instructions for use ${data.title}:
+  Instructions for use ${data.title}:\n
   ${data.usage}
 
   ${renderLicenseSection(data)}
   ${renderLicenseLink(data)}
 
   ## Contributing
-  Guidelines to contribute to this project:
+  Guidelines to contribute to this project:\n
   ${data.contributing}
 
   ## Tests
-  Instructions to run tests on this application:
-  ${data.tests}
+  ${renderNoTestsNote(data)}
 
   ## Questions
-  For any additional questions, you may reach me at [${data.email}](mailto:${data.email}).
+  For any additional questions, you may reach me at [${data.email}](mailto:${data.email}).\n
   To view my other work, please visit my GitHub profile at [${data.username}](https://www.github.com/${data.username}). 
 
 `;
